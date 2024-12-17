@@ -98,7 +98,7 @@ class StockController extends Controller
      *     path="/stock/{id}",
      *     summary="Обновить склад",
      *     tags={"Stocks"},
-     *     security={{"sanctum": {}}},
+     *     security={{"bearerAuth":{}}},
      *     @OA\Parameter(
      *         name="id",
      *         in="path",
@@ -158,7 +158,7 @@ class StockController extends Controller
      *     path="/stock/{id}",
      *     summary="Удалить склад",
      *     tags={"Stocks"},
-     *     security={{"sanctum": {}}},
+     *     security={{"bearerAuth":{}}},
      *     @OA\Parameter(
      *         name="id",
      *         in="path",

@@ -202,6 +202,9 @@
                                 }
                             }
                         }
+                    },
+                    "422": {
+                        "description": "Ошибка валидации данных"
                     }
                 },
                 "security": [
@@ -345,9 +348,6 @@
                 "responses": {
                     "204": {
                         "description": "Склад успешно удален"
-                    },
-                    "404": {
-                        "description": "Склад не найден"
                     }
                 },
                 "security": [
@@ -388,9 +388,6 @@
                                 }
                             }
                         }
-                    },
-                    "404": {
-                        "description": "Город не найден"
                     }
                 }
             }
@@ -454,6 +451,18 @@
                         "description": "Название города",
                         "type": "string",
                         "example": "Москва"
+                    },
+                    "created_at": {
+                        "description": "Дата и время создания записи",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-12-17T12:34:56Z"
+                    },
+                    "updated_at": {
+                        "description": "Дата и время последнего обновления записи",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-12-18T12:34:56Z"
                     }
                 },
                 "type": "object"
@@ -467,6 +476,11 @@
                     "lng"
                 ],
                 "properties": {
+                    "id": {
+                        "description": "Уникальный идентификатор склада",
+                        "type": "integer",
+                        "example": 1
+                    },
                     "city_id": {
                         "description": "ID города, к которому относится склад",
                         "type": "integer",
@@ -488,6 +502,24 @@
                         "type": "number",
                         "format": "float",
                         "example": 37.6173
+                    },
+                    "created_at": {
+                        "description": "Дата и время создания записи",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-12-17T12:34:56Z"
+                    },
+                    "updated_at": {
+                        "description": "Дата и время последнего обновления записи",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-12-18T12:34:56Z"
+                    },
+                    "distance": {
+                        "description": "Расстояние до склада (если применимо)",
+                        "type": "number",
+                        "format": "float",
+                        "example": 5.2
                     }
                 },
                 "type": "object"
