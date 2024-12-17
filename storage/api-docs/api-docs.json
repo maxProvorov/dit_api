@@ -1,0 +1,514 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "City and Stock API",
+        "description": "API для работы с городами и складами.",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/city/{id}": {
+            "get": {
+                "tags": [
+                    "Cities"
+                ],
+                "summary": "Получить информацию о городе",
+                "operationId": "5a7b6766b61b35c52ccb43edd7a33259",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID города",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Информация о городе",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/City"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Город не найден"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Cities"
+                ],
+                "summary": "Обновить информацию о городе",
+                "operationId": "d0af268d4633a5d5a5714dd23ecdec69",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID города",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/City"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Город обновлен",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/City"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Cities"
+                ],
+                "summary": "Удалить город",
+                "operationId": "20163308af9adc11a49d350825877375",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID города",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Город удален"
+                    },
+                    "404": {
+                        "description": "Город не найден"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/city": {
+            "post": {
+                "tags": [
+                    "Cities"
+                ],
+                "summary": "Добавить новый город",
+                "operationId": "a8227d5bf6c485aeef4f403040f32ecc",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/City"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Город создан",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/City"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/stocks": {
+            "get": {
+                "tags": [
+                    "Stocks"
+                ],
+                "summary": "Получить список всех складов",
+                "operationId": "d4033154f4154db037806c28dacaf51a",
+                "responses": {
+                    "200": {
+                        "description": "Список складов",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Stock"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Stocks"
+                ],
+                "summary": "Добавить новый склад",
+                "operationId": "bcd2af84da9c2ee170ade9d263efffb2",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Stock"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Склад создан",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Stock"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/stocks/{id}": {
+            "get": {
+                "tags": [
+                    "Stocks"
+                ],
+                "summary": "Получить информацию о складе",
+                "operationId": "0eb5a79eb49e0c5a8c2585dbdfa94d99",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID склада",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Информация о складе",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Stock"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/stock/{id}": {
+            "put": {
+                "tags": [
+                    "Stocks"
+                ],
+                "summary": "Обновить склад",
+                "operationId": "2956bc25ac4e6cabb3132198ca9e09b7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID склада для обновления",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "city_id",
+                                    "address",
+                                    "lat",
+                                    "lng"
+                                ],
+                                "properties": {
+                                    "city_id": {
+                                        "description": "ID города",
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "address": {
+                                        "description": "Адрес склада",
+                                        "type": "string",
+                                        "example": "ул. Ленина, д. 10"
+                                    },
+                                    "lat": {
+                                        "description": "Широта склада",
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 55.7558
+                                    },
+                                    "lng": {
+                                        "description": "Долгота склада",
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 37.6173
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Успешное обновление склада",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Stock"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Склад не найден"
+                    },
+                    "422": {
+                        "description": "Ошибка валидации данных"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Stocks"
+                ],
+                "summary": "Удалить склад",
+                "operationId": "b788b8bcd7930ef770ba7e0c5a049488",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID склада для удаления",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Склад успешно удален"
+                    },
+                    "404": {
+                        "description": "Склад не найден"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/city/{cityId}/stocks": {
+            "get": {
+                "tags": [
+                    "Stocks"
+                ],
+                "summary": "Получить список складов в городе",
+                "operationId": "a956076410099a8acacc06d7efc1cd13",
+                "parameters": [
+                    {
+                        "name": "cityId",
+                        "in": "path",
+                        "description": "ID города",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Список складов",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Stock"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Город не найден"
+                    }
+                }
+            }
+        },
+        "/api/stock/nearby": {
+            "post": {
+                "tags": [
+                    "Stocks"
+                ],
+                "summary": "Поиск ближайшего склада",
+                "operationId": "2cb713875c79697f3755f0308819a438",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "lat": {
+                                        "type": "number",
+                                        "example": 23.323232
+                                    },
+                                    "lng": {
+                                        "type": "number",
+                                        "example": 23.212143
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ближайший склад",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Stock"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "City": {
+                "required": [
+                    "id",
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "description": "Название города",
+                        "type": "string",
+                        "example": "Москва"
+                    }
+                },
+                "type": "object"
+            },
+            "Stock": {
+                "required": [
+                    "id",
+                    "city_id",
+                    "address",
+                    "lat",
+                    "lng"
+                ],
+                "properties": {
+                    "city_id": {
+                        "description": "ID города, к которому относится склад",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "address": {
+                        "description": "Адрес склада",
+                        "type": "string",
+                        "example": "ул. Пушкина, д. 10"
+                    },
+                    "lat": {
+                        "description": "Широта склада",
+                        "type": "number",
+                        "format": "float",
+                        "example": 55.7558
+                    },
+                    "lng": {
+                        "description": "Долгота склада",
+                        "type": "number",
+                        "format": "float",
+                        "example": 37.6173
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Cities",
+            "description": "Cities"
+        },
+        {
+            "name": "Stocks",
+            "description": "Stocks"
+        }
+    ]
+}
